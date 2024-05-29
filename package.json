@@ -1,0 +1,46 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "prod": "npm run production",
+        "production": "mix --production"
+    },
+    "devDependencies": {
+        "@popperjs/core": "^2.10.2",
+        "axios": "^0.21",
+        "laravel-mix": "^6.0.6",
+        "lodash": "^4.17.19",
+        "postcss": "^8.1.14",
+        "resolve-url-loader": "^3.1.2",
+        "sass": "^1.32.11",
+        "sass-loader": "^11.0.1",
+        "vue": "^2.6.12",
+        "vue-loader": "^15.11.1",
+        "vue-sweetalert2": "^5.0.2",
+        "vue-template-compiler": "^2.7.15"
+    },
+    "dependencies": {
+        "@riophae/vue-treeselect": "^0.4.0",
+        "chart.js": "^3.8.0",
+        "datatables.net": "^1.13.8",
+        "moment": "^2.29.1",
+        "moment-timezone": "^0.5.44",
+        "vue-chartjs": "^4.1.1",
+        "vue-html-to-paper": "^1.4.4",
+        "vue-infinite-loading": "^2.4.5",
+        "vue-js-toggle-button": "^1.3.3",
+        "vue-multiselect": "^2.1.6",
+        "vue-sweetalert2": "^5.0.5",
+        "vue-treeselect": "^1.0.7",
+        "vue2-circle-progress": "^1.2.3",
+        "vue2-datepicker": "^3.11.1",
+        "vue2-google-maps": "^0.10.7",
+        "vuejs-datetimepicker": "^1.1.13",
+        "vuelidate": "^0.7.6",
+        "vuetify": "^2.7.1"
+    }
+}

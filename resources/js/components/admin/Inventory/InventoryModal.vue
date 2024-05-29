@@ -1,0 +1,232 @@
+<template>
+    <div class="modal fade mt-2" id="inventoryModal" tabindex="-1" aria-hidden="true" data-target=".bd-example-modal-lg"
+        data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog modal-lg">
+            <form @submit.prevent="save">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">{{ modalType }} Inventory</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                            @click="$emit('close-modal')"><span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body p-3">
+                        <div class="circle-container">
+                            <div class="circle">
+                                <i class="fa-solid fa-cubes-stacked icon"></i>
+                            </div>
+                        </div>
+                        <div class="mt-5 package-container px-3 pb-2 pt-5">
+                            <div class="row no-gutters">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label class="mb-0">Date</label>
+                                        <date-picker v-model="data.date" type="date" value-type="YYYY-MM-DD"
+                                            format="DD-MMM-YYYY" placeholder="DD-MM-YYYY"></date-picker>
+                                    </div>
+                                </div>
+                                <div class="col-6 pl-3">
+                                    <div class="form-group">
+                                        <label class="mb-0">Product <sup>*</sup></label>
+                                        <input type="text" v-model="data.product" class="form-control"
+                                            placeholder="Product Name" required>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label class="mb-0">Company <sup>*</sup></label>
+                                        <input type="text" v-model="data.company" class="form-control"
+                                            placeholder="Company" required>
+                                    </div>
+                                </div>
+                                <div class="col-6 pl-3">
+                                    <div class="form-group">
+                                        <label class="mb-0">Price/Unit <sup>*</sup></label>
+                                        <input type="number" v-model="data.unit_price" class="form-control"
+                                            placeholder="Price/Unit" required>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label class="mb-0">Quantity <sup>*</sup></label>
+                                        <input type="number" v-model="data.quantity" class="form-control"
+                                            placeholder="Quantity" required>
+                                    </div>
+                                </div>
+                                <div class="col-4 pl-3">
+                                    <div class="form-group">
+                                        <label class="mb-0">Price</label>
+                                        <input type="number" v-model="data.total_price" class="form-control"
+                                            placeholder="Price">
+                                    </div>
+                                </div>
+                                <div class="col-4 pl-3">
+                                    <div class="form-group">
+                                        <label class="mb-0">Status</label>
+                                        <select class="form-control" v-model="data.status">
+                                            <option value="Select Status" selected disabled>Select Status</option>
+                                            <option value="High">High</option>
+                                            <option value="Medium">Medium</option>
+                                            <option value="Low">Low</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="mb-0">Description</label>
+                                        <textarea v-model="data.description" class="form-control"
+                                            id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-right p-2 border-top">
+                        <button type="submit" class="btn btn-outline-info mr-2 px-5" v-if="modalType == 'Add'">
+                            <span v-if="!loading">Save</span>
+                            <span v-if="loading" class="spinner-border spinner-border-sm"></span>
+                        </button>
+                        <button type="submit" class="btn btn-outline-info mr-2 px-5" v-if="modalType == 'Edit'">
+                            Update</button>
+                        <button type="button" class="btn btn-outline-danger px-5" @click="$emit('close-modal')">
+                            Close</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</template>
+<script>
+import DatePicker from 'vue2-datepicker';
+import 'vue2-datepicker/index.css';
+import moment from 'moment';
+export default {
+    name: 'inventory-modal',
+    props: ['modalType', 'objId'],
+    components: { DatePicker },
+    data() {
+        return {
+            data: {
+                'product': '',
+                'company': '',
+                'date': moment().format('mm-dd-yyyy'),
+                'unit_price': '',
+                'quantity': '',
+                'total_price': '',
+                'status': '',
+                'description': '',
+            },
+            loading: false,
+        }
+    },
+    methods: {
+        save() {
+            this.loading = true;
+            let url = this.modalType == 'Add' ? '/admin/inventories' : `/admin/inventories/${this.objId}`;
+            let method = this.modalType == 'Add' ? 'POST' : 'PUT';
+
+            axios({
+                url: url,
+                method: method,
+                data: this.data,
+            })
+                .then(response => {
+                    this.loading = false
+                    this.successToast(response.data.message)
+                    this.$emit('close-modal');
+                })
+                .catch(error => {
+                    this.errorToast(error.response.statusText)
+                });
+        },
+        getDataForEdit() {
+            console.log('here');
+            this.loading = true
+            axios({
+                url: `/admin/inventories/${this.objId}/edit`,
+                method: 'GET',
+            })
+                .then(response => {
+                    this.loading = false
+                    this.data = response.data.data
+                })
+                .catch(error => {
+                    this.errorToast(error.response.error)
+                })
+        },
+        closeTab(tabId) {
+            this.items = this.items.filter(item => item.id !== tabId)
+            if (this.items.length === 0) {
+                this.$emit('close-modal')
+            }
+        },
+    },
+    mounted() {
+        if (this.modalType === 'Edit' && this.objId) {
+            this.getDataForEdit();
+        }
+    },
+}
+</script>
+<style scoped>
+.form-header {
+    background-color: #eaf5ff;
+}
+
+.form-header,
+h6,
+i {
+    color: #51aafc;
+}
+
+.user {
+    display: inline-block;
+    /* Ensures that the element is treated as a block, but lays out as an inline-level element */
+    overflow: hidden;
+    /* Prevents content from overflowing */
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 4px 7px;
+    background-color: #0561851a;
+}
+
+/**Circle Css  */
+.circle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 20px;
+    left: 362px;
+
+}
+
+.circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    /* Adjust the width as needed */
+    height: 80px;
+    /* Adjust the height as needed */
+    background-color: orange;
+    border: 8px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.377);
+    /* Adjust the shadow as needed */
+}
+
+.icon {
+    font-size: 2rem;
+    /* Adjust the font size as needed */
+    color: white;
+    text-shadow: 1px 4px 4px rgba(0, 0, 0, 0.267);
+    font-size: 2.5rem;
+}
+
+.package-container {
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.377);
+}
+</style>

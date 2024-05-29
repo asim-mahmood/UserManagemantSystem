@@ -1,0 +1,612 @@
+#global-loader {
+    position: fixed;
+    z-index: 50000;
+    background: url('../images/loader.svg') no-repeat 50% 50% rgba(255, 255, 255);
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+}
+.invalid-class{
+    color: red;
+    font-size: 11px;
+    position: absolute;
+}
+.pl-16{
+    padding-left: 16rem !important;
+}
+.cursor-pointer {
+    cursor: pointer;
+  }
+/* Login Page */
+.login-page {
+    -ms-flex-align: center;
+    align-items: center;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 75vh;
+    -ms-flex-pack: center;
+    justify-content: center;
+    background-color: lightgray;
+}
+
+.os-viewport {
+    bottom: 10px;
+}
+.primary-bg-color{
+    background-color: #FFA327!important;
+}
+.primary-border-color{
+    border:1px solid  #FFA327!important;
+}
+.login-image {
+    width: 100%;
+    height: 100%;
+    padding: 40px 20px 20px 30px;
+    margin-top: 0px;
+}
+
+.login-form {
+    background: white;
+    width: 100%;
+    height: 100%;
+    padding: 30px 20px 20px 30px;
+}
+
+
+
+/* nav bar */
+
+.user-panel {
+    overflow: hidden;
+    white-space: nowrap;
+    top: -7px;
+}
+
+.user-panel-dropdown {
+    margin-left: -2.5rem;
+}
+
+
+
+/* side bar */
+.brand-link {
+    display: block;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    padding: .55rem .5rem;
+    transition: width .3s ease-in-out;
+    white-space: nowrap;
+}
+.brand-link.text-sm .brand-image,
+.text-sm .brand-link .brand-image {
+    margin-bottom: unset;
+    margin-top: unset;
+}
+
+
+.text-sm .nav-link {
+    padding: 0.4rem 1rem;
+}
+
+.nav-sidebar .menu-is-opening>.nav-link i.right, .nav-sidebar .menu-open>.nav-link i.right {
+    transform: rotate(-180deg);
+}
+
+.nav .nav-treeview a{
+    padding-left: 15px;
+}
+
+.sidebar-dark-primary .nav-sidebar.nav-legacy>.nav-item>.nav-link.active,
+.sidebar-light-primary .nav-sidebar.nav-legacy>.nav-item>.nav-link.active {
+    margin-bottom: 2px;
+}
+
+.nav-sidebar>.nav-item .nav-icon.fa,
+.nav-sidebar>.nav-item .nav-icon.fab,
+.nav-sidebar>.nav-item .nav-icon.fad,
+.nav-sidebar>.nav-item .nav-icon.fal,
+.nav-sidebar>.nav-item .nav-icon.far,
+.nav-sidebar>.nav-item .nav-icon.fas,
+.nav-sidebar>.nav-item .nav-icon.ion,
+.nav-sidebar>.nav-item .nav-icon.svg-inline--fa {
+    font-size: .8rem;
+}
+
+[class*=sidebar-dark] .nav-legacy .nav-treeview>.nav-item>.nav-link.active,
+[class*=sidebar-dark] .nav-legacy .nav-treeview>.nav-item>.nav-link:focus,
+[class*=sidebar-dark] .nav-legacy .nav-treeview>.nav-item>.nav-link:hover {
+    background-color: rgba(255, 255, 255, .9);
+    color: #343a40;
+}
+
+.nav .nav-treeview>.nav-item{
+    padding: 2px 5px;
+}
+
+/*Datatable*/
+.table td, .table th {
+    padding: 3px 10px;
+    vertical-align: unset;
+}
+
+table.dataTable.dtr-inline.collapsed.table-sm>tbody>tr>td:first-child:before, table.dataTable.dtr-inline.collapsed.table-sm>tbody>tr>th:first-child:before {
+    top: 7px !important;
+}
+table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td.dtr-control:before, table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th.dtr-control:before {
+    margin-top: 0px !important;
+}
+
+
+
+.selected-row{
+    background-color: #E9ECEF;
+}
+
+
+
+
+/* form */
+.input-form-heading{
+    /* font-weight: bold; */
+    width: 10rem;
+}
+
+
+/* Date Picker */
+
+.mx-datepicker {
+    width: 100% !important;
+}
+
+.mx-input {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+}
+
+
+/* .mx-table-date .today {
+    color: #800080 !important;
+} */
+
+
+
+/* general */
+
+
+
+
+
+
+
+
+.loading-center{
+    position: fixed;
+    z-index: 9999;
+    top: 40%;
+    left: 50%;
+}
+.screen-opacity{
+    opacity: .3;
+}
+
+
+
+.multiselect__content-wrapper {
+    position: absolute;
+    display: block;
+    background: #fff;
+    width: 100%;
+    max-height: 350px !important;
+    overflow: auto;
+    border: 1px solid #ccc;
+    border-top: none;
+    /* border-bottom-left-radius: 5px; */
+    /* border-bottom-right-radius: 5px; */
+    z-index: 50;
+    -webkit-overflow-scrolling: touch;
+}
+/*.ledger-report .multiselect__content-wrapper {*/
+/*    width: 550px;*/
+/*}*/
+
+.multiselect__option {
+    padding: 5px 10px !important;
+    min-height: 25px !important;
+    line-height: 15px !important;
+    margin: 5px 10px;
+}
+
+
+.multiselect-account-option-code{
+    min-width: 7rem;
+}
+.multiselect-account-option-title{
+    min-width: 18rem;
+}
+.multiselect-account-option-head-name{
+    min-width: auto;
+}
+
+.multiselect--disabled {
+    background: #ededed !important;
+    pointer-events: unset !important;
+    opacity: .7 !important;
+    cursor: not-allowed !important;
+}
+
+.multiselect--disabled .multiselect__current, .multiselect--disabled .multiselect__select {
+    background: #ededed !important;
+    pointer-events: unset !important;
+    cursor: not-allowed !important;
+}
+.multiselect--disabled .multiselect__tags, .multiselect--disabled .multiselect__single {
+    background: #ededed !important;
+}
+
+.post-dated-cheque-input .multiselect__content-wrapper {
+    max-height: 250px !important;
+}
+
+.layout-footer-fixed .wrapper .content-wrapper {
+    padding-bottom: unset
+}
+.treeselect-invalid-border .vue-treeselect__control{
+    border-color: #dc3545;
+}
+/* Treeselect */
+
+
+.is-invalid-input-no-icon{
+    border-color: #dc3545;
+    padding-right: 2.25rem;
+    background-image: unset;
+    background-repeat: unset;
+    background-position: unset;
+    background-size: unset;
+}
+
+.is-invalid-text {
+    position: absolute;
+    font-size: 80%;
+    width: 100%;
+    color: #dc3545;
+}
+sup{
+    color: red !important;
+}
+small{
+    color: red;
+}
+/* remove input type number arrows */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.modal .overlay {
+    border-radius: 0.25rem;
+    align-items: center;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    z-index: 50;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    pointer-events: auto;
+}
+
+.table-action-buttons .dropdown-menu {
+    padding: .5rem
+}
+
+.tbl-selected-row {
+    background-color: #ECECEC;
+    color: #000;
+}
+.w-rem-1 {
+    width: 1rem;
+}
+
+.w-rem-2 {
+    width: 2rem;
+}
+
+.w-rem-3 {
+    width: 3rem;
+}
+
+.w-rem-4 {
+    width: 4rem;
+}
+
+.w-rem-5 {
+    width: 5rem;
+}
+
+.w-rem-6 {
+    width: 6rem;
+}
+
+.w-rem-7 {
+    width: 7rem;
+}
+
+.w-rem-8 {
+    width: 8rem;
+}
+
+.w-rem-9 {
+    width: 9rem;
+}
+
+.w-rem-10 {
+    width: 10rem;
+}
+
+.w-rem-11 {
+    width: 11rem;
+}
+
+.w-rem-12 {
+    width: 12rem;
+}
+
+.w-rem-13 {
+    width: 13rem;
+}
+
+.w-rem-14 {
+    width: 14rem;
+}
+
+.w-rem-15 {
+    width: 15rem;
+}
+
+.w-rem-16 {
+    width: 16rem;
+}
+
+.w-rem-17 {
+    width: 17rem;
+}
+
+.w-rem-18 {
+    width: 18rem;
+}
+
+.w-rem-19 {
+    width: 19rem;
+}
+
+.w-rem-20 {
+    width: 20rem;
+}
+
+.w-rem-21 {
+    width: 21rem;
+}
+
+.w-rem-22 {
+    width: 22rem;
+}
+
+.w-rem-23 {
+    width: 23rem;
+}
+
+.w-rem-24 {
+    width: 24rem;
+}
+
+.w-rem-25 {
+    width: 25rem;
+}
+
+.w-rem-26 {
+    width: 26rem;
+}
+
+.w-rem-27 {
+    width: 27rem;
+}
+
+.w-rem-28 {
+    width: 28rem;
+}
+
+.w-rem-29 {
+    width: 29rem;
+}
+
+.w-rem-30 {
+    width: 30rem;
+}
+
+.w-rem-31 {
+    width: 31rem;
+}
+
+.w-rem-32 {
+    width: 32rem;
+}
+
+.w-rem-33 {
+    width: 33rem;
+}
+
+.w-rem-34 {
+    width: 34rem;
+}
+
+.w-rem-35 {
+    width: 35rem;
+}
+
+.w-rem-36 {
+    width: 36rem;
+}
+
+.w-rem-37 {
+    width: 37rem;
+}
+
+.w-rem-38 {
+    width: 38rem;
+}
+
+.w-rem-39 {
+    width: 39rem;
+}
+
+.w-rem-40 {
+    width: 40rem;
+}
+
+.w-rem-41 {
+    width: 41rem;
+}
+
+.w-rem-42 {
+    width: 42rem;
+}
+
+.w-rem-43 {
+    width: 43rem;
+}
+
+.w-rem-44 {
+    width: 44rem;
+}
+
+.w-rem-45 {
+    width: 45rem;
+}
+
+.w-rem-46 {
+    width: 46rem;
+}
+
+.w-rem-47 {
+    width: 47rem;
+}
+
+.w-rem-48 {
+    width: 48rem;
+}
+
+.w-rem-49 {
+    width: 49rem;
+}
+
+.w-rem-50 {
+    width: 50rem;
+}
+
+
+#custom-content-above-tab.nav-tabs .nav-item .nav-link {
+    padding: 0.4rem 0.8rem;
+}
+#custom-content-above-tab.nav-tabs .nav-item .nav-link:hover {
+    border-bottom: 0;
+}
+#custom-content-above-tab.nav-tabs .nav-item .nav-link.active {
+    border-top: 3px solid #800080;
+}
+
+.btn-group .btn{
+    width: 100px;
+    border: 1px solid #ccc
+}
+.btn-group .btn:hover{
+    background-color: #dd09dd;
+    border-color: #dd09dd;
+    color: #fff
+}
+.btn-group .btn.active{
+    background-color: #800080;
+    border-color: #800080;
+    color: #fff
+}
+
+.custom-file-input:focus~.custom-file-label{
+    color: #495057;
+    background-color: #fff;
+    border-color: #800080;
+    outline: 0;
+    box-shadow: inset 0 0 0 transparent;
+}
+
+.validation-date-picker-border .mx-input-wrapper .mx-input {
+    border-color: #dc3545;
+}
+/*CUstom Toggle Button Css Active and InActive Css*/
+.toggle-checkbox {
+    display: none;
+}
+.toggle-container {
+    position: relative;
+    width: 65px;
+    height: 17.5px;
+    background-color: #ccc;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.4px 1.4px 2.2px;
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 11px;
+    height: 11px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: 0.6s;
+    box-shadow: rgba(0, 0, 0, 0.48) 1px 1px 1px 0px;
+}
+
+.toggle-text {
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    transform: translate(0, -50%);
+    width: 100%;
+    text-align: center;
+    font-size: 0.6rem;
+    z-index: 1;
+}
+.toggle-checkbox + .toggle-container {
+    background-color: #ccc;
+}
+
+.toggle-checkbox:not(:checked) + .toggle-container .toggle-text::before {
+    content: "In-Active";
+    color: white;
+}
+.toggle-checkbox:checked + .toggle-container {
+    background-color: #ffb327;
+}
+.toggle-checkbox + .toggle-container {
+    background-color:  #b0b0b0;
+}
+.toggle-checkbox:checked + .toggle-container .toggle-slider {
+    left: 50px;
+}
+.toggle-checkbox:checked + .toggle-container .toggle-text::before {
+    content: "Active";
+    color: #fff;
+    padding-right: 40px;
+}
